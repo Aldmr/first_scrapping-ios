@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "229269742044",
+    "project_id": "nktlm-9dcfd",
+    "storage_bucket": "nktlm-9dcfd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229269742044:android:cbc9bcad8ba9f78d68ef19",
+        "android_client_info": {
+          "package_name": "com.example.first_scrapping"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUxrNWqpoAPqnkETv2WS7rR7OQuF48I4Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
