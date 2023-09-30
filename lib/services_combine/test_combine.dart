@@ -34,5 +34,7 @@ class TestService {
     print('Faaliyet Alanı: ${controller.companyActivity.value}');
     print('Sektör:${controller.companySector.value}');
     print('Dahil Olduğu Endeksler: ${controller.includeIndex.value}');
+    List a = [];
+    a = controller.includeIndex.value.split('/');
   }
 }

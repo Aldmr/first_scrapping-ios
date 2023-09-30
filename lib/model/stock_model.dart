@@ -23,6 +23,9 @@ class StockModel {
   String? maxstr;
   String? time;
   double? allLotCount;
+  String? companyActivity;
+  String? companySector;
+  List? includeIndex;
 
   StockModel(
       {this.name,
@@ -48,7 +51,10 @@ class StockModel {
       this.max,
       this.maxstr,
       this.time,
-      this.allLotCount});
+      this.allLotCount,
+      this.companyActivity,
+      this.companySector,
+      this.includeIndex});
 
   Map<String, dynamic> toMap() {
     return {
@@ -75,7 +81,10 @@ class StockModel {
       "max": max,
       "maxstr": maxstr ?? "null",
       "time": time ?? "null",
-      "allLotCount": allLotCount
+      "allLotCount": allLotCount,
+      "companyActivity": companyActivity,
+      "companySector": companySector,
+      "includeIndex": includeIndex
     };
   }
 
@@ -103,7 +112,10 @@ class StockModel {
         max = map["max"],
         maxstr = map["maxstr"],
         time = map["time"],
-        allLotCount = map["allLotCount"].toDouble();
+        allLotCount = map["allLotCount"].toDouble(),
+        companyActivity = map["companyActivity"],
+        companySector = map["companySector"],
+        includeIndex = map["includeIndex"];
 
   @override
   String toString() {

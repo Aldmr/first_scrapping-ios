@@ -21,22 +21,6 @@ class ServicesCombine {
   Map<String, StockPriceModel> apiValues = {};
 
   Future scrapAndWriteDB() async {
-    /* 
-    // ************************************************************
-    // Bist Katılım Tüm Endeksindeki Hisseleri alır ve DB'ye yazar.
-    await _scrappingServices.getKatilimTum();
-
-    for (int i = 0; i < controller.symbolList.length; i++) {
-      if (controller.symbolList[i] == "Kod") {
-        continue;
-      } else {
-        StockListModel stockListModel = StockListModel(controller.symbolList[i],
-            controller.nameList[i], controller.codeList[i]);
-        await _stockServiceFirebase.saveStockList(stockListModel);
-      }
-    }
-    print("Bist Katılım Tüm Listesi Kaydedildi."); */
-
     //*****************************************************
     var response = await _collectApi.fetchAlbum();
     // Api' den gelen tüm hisse fiyatlarını apiValues map değerine atar.
@@ -61,7 +45,7 @@ class ServicesCombine {
     await _stockServiceFirebase.readFromStockListAndEditUrl(
         "Tüm Liste"); // stockList collection'ındaki tüm bilgileri controller.allDocs Map' ine atar.
 
-    for (int i = 0; i < controller.allDocs.length; i++) {
+    for (int i = 0; i < 16 /*controller.allDocs.length*/; i++) {
       String stockURLCode = controller.allDocs[i]!
           .code; // DB' de ki code. Örnk: /tr/sirket-bilgileri/ozet/4028e4a2420327a4014209c55161144d
       controller.stockCode.value = stockURLCode.substring(
@@ -172,7 +156,10 @@ class ServicesCombine {
             min: apiValues[controller.symbol.value]!.min,
             minstr: apiValues[controller.symbol.value]!.minstr,
             rate: apiValues[controller.symbol.value]!.rate,
-            time: apiValues[controller.symbol.value]!.time);
+            time: apiValues[controller.symbol.value]!.time,
+            includeIndex: controller.includeIndex.value.split('/'),
+            companyActivity: controller.companyActivity.value,
+            companySector: controller.companySector.value);
 
         await _stockServiceFirebase
             .saveStock(stockModel); //StockModel i db'ye kaydeder.
